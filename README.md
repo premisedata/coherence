@@ -36,7 +36,7 @@ A strategy that manages the viewContext and BackgroundContext connected directly
 
 Changes made to `BackgroundContext`s are propagated directly to the persistentStore allowing merge policies to be set and respected.
 
-![Inheritance Diagram](Docs/Context Strategy - Direct.png)
+![Context Strategy - Direct Diagram](Docs/ContextStrategy-Direct.png)
 
 - Note: The view context will be kept up to date and persisted to the store when a background context is saved.
 
@@ -44,7 +44,7 @@ Changes made to `BackgroundContext`s are propagated directly to the persistentSt
 
 A strategy that manages independent contexts (for view and background) connected directly to the `NSPersistentStoreCoordinator`.
 
-![Inheritance Diagram](Docs/Context Strategy - Direct Independent.png)
+![Context Strategy - Direct Independent Diagram](Docs/ContextStrategy-DirectIndependent.png)
 
 - Note: The view context will not be kept up to date with this strategy.
 
@@ -54,7 +54,7 @@ A strategy that manages nested (parent/child) contexts (for view and background)
 
 Propagation of changes to the persistent store are done indirectly in the background through a root context.
 
-![Inheritance Diagram](Docs/Context Strategy - Indirect Nested.png)
+![Context Strategy - Indirect Nested Diagram](Docs/ContextStrategy-IndirectNested.png)
 
 - Note: The view context will be kept up to date and persisted to the store when a background context is saved.
 
@@ -69,7 +69,7 @@ allowing merge policies to be set and respected. `viewContext` updates are done 
 in memory and propagated to the persistentStore indirectly in a background thread
 through the rootContext.
 
-![Inheritance Diagram](Docs/Context Strategy - Mixed.png)
+![Context Strategy - Mixed Diagram](Docs/ContextStrategy-Mixed.png)
 
 - Note: The view context will be kept up to date and persisted to the store when a background context is saved.
 
