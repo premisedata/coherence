@@ -23,14 +23,26 @@
   <img src="https://codecov.io/gh/tonystone/coherence/branch/master/graph/badge.svg" alt="Codecov" />
 </a>
 
+## Introduction
 
 Coherence the configurable CoreData extension for the WebService era.  Coherence helps you build apps that require persistence, offline storage, store and forward and web connectivity.
 
-## Configurable Context Strategies
+Coherence is divided into 2 main sections, the Connect and Container.
 
-Coherence gives you a choice of ManagedObjectContext strategies used by a PersistentStack instance.  `ContextStrategy` classes encapsulate the layout and behavior of the ManagedObjectContexts of the CoreData stack. `Connect` currently has 4 built in strategies `Direct`, `DirectIndependent`, `IndirectNested` and `Mixed`.  If one of these strategies don't give you what you require for your application, you can also create your own by implementing the `ContextStrategyType` protocol.
+### Coherence - Connect
 
-### Context Strategy - Direct
+Coherence Connect is the main 
+
+### Coherence - Container
+
+Coherence Container contains a complete CoreData stack implementation and forms the base of the Connect stack.  It allows you to specify the strategy used to manage the `NSManagedObject` contexts it supplies.
+
+
+### Context Strategy
+
+Coherence gives you a choice of ManagedObjectContext strategies used by a PersistentStack instance.  `ContextStrategy` classes encapsulate the layout and behavior of the ManagedObjectContexts of the CoreData stack. `Connect` currently has 4 built in strategies `Direct`, `DirectIndependent`, `IndirectNested` and `Mixed`.  If one of these strategies doesn't give you what you require for your application, you can also create your own by implementing the `ContextStrategyType` protocol.
+
+#### Context Strategy - Direct
 
 A strategy that manages the viewContext and BackgroundContext connected directly to the `NSPersistentStoreCoordinator`.
 
@@ -40,7 +52,7 @@ Changes made to `BackgroundContext`s are propagated directly to the persistentSt
 
 - Note: The view context will be kept up to date and persisted to the store when a background context is saved.
 
-### Context Strategy - Direct Independent
+#### Context Strategy - Direct Independent
 
 A strategy that manages independent contexts (for view and background) connected directly to the `NSPersistentStoreCoordinator`.
 
@@ -48,7 +60,7 @@ A strategy that manages independent contexts (for view and background) connected
 
 - Note: The view context will not be kept up to date with this strategy.
 
-### Context Strategy - Indirect Nested
+#### Context Strategy - Indirect Nested
 
 A strategy that manages nested (parent/child) contexts (for view and background) connected indirectly through a root context to the `NSPersistentStoreCoordinator`.
 
@@ -58,7 +70,7 @@ Propagation of changes to the persistent store are done indirectly in the backgr
 
 - Note: The view context will be kept up to date and persisted to the store when a background context is saved.
 
-### Context Strategy - Mixed
+#### Context Strategy - Mixed
 
 A strategy that manages a nested (parent/child) viewContexts connected indirectly
 through a root context to the `NSPersistentStoreCoordinator` and background contexts
@@ -73,12 +85,38 @@ through the rootContext.
 
 - Note: The view context will be kept up to date and persisted to the store when a background context is saved.
 
+## Usage
+
+### Start up
+
+Coherence Connect is designed to be very easy to get started.  If your only requirements are to load a data model using the default options for the store, it's as simple as the follow:
+
+```Swift
+let connect: Connect = GenericConnect<ContextStrategy.Mixed>(name: "ModelName")
+
+try connect.start()
+```
+
+This will create an instance of Connect, search for the model in the application bundle, loads the model and creates a persistent store in the default location.
+
+### 
+
 ## Requirements
 
 | Xcode | Swift | iOS |
 |:-----:|:-----:|:---:|
 |  8.3  |  3.1  | 9.0 |
 
+
+## Installation (CocoaPods)
+
+Coherence is available through [CocoaPods](http://cocoapods.org). Currently Swift is the default so to install it, simply add the following line to your Podfile:
+
+```ruby
+pod "Coherence"
+```
+
+See the ["Using CocoaPods"](https://guides.cocoapods.org/using/using-cocoapods.html) guide for more information.
 
 ## Author
 
