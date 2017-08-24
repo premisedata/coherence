@@ -23,90 +23,35 @@
   <img src="https://codecov.io/gh/tonystone/coherence/branch/master/graph/badge.svg" alt="Codecov" />
 </a>
 
-## Introduction
 
-Coherence the configurable CoreData extension for the WebService era.  Coherence helps you build apps that require persistence, offline storage, store and forward and web connectivity.
+**Coherence**, the configurable CoreData extension for the Web Service era.  Coherence helps you build apps that require persistence, offline storage, store and forward and web connectivity. It provides you with a comprehensive framework for managing low level resources intelligently and efficiently.
 
-Coherence is divided into 2 main sections, the Connect and Container.
+## Documentation
 
-### Coherence - Connect
+To get started using Coherence quickly, see the [Quick Start Guide](Documentation/Quick&#32;Start&#32;Guide.md).
 
-Coherence Connect is the main 
+For extensive documentation on using Coherence and more, see [Documentation](Documentation).
 
-### Coherence - Container
+## Sources and Binaries
 
-Coherence Container contains a complete CoreData stack implementation and forms the base of the Connect stack.  It allows you to specify the strategy used to manage the `NSManagedObject` contexts it supplies.
+You can find the latest sources and binaries on [github](https://github.com/tonystone/coherence).
 
+## Communication and Contributions
 
-### Context Strategy
+- If you **found a bug**, _and can provide steps to reliably reproduce it_, [open an issue](https://github.com/tonystone/coherence/issues).
+- If you **have a feature request**, [open an issue](https://github.com/tonystone/coherence/issues).
+- If you **want to contribute**
+   - Fork it! [Coherence repository](https://github.com/tonystone/coherence)
+   - Create your feature branch: `git checkout -b my-new-feature`
+   - Commit your changes: `git commit -am 'Add some feature'`
+   - Push to the branch: `git push origin my-new-feature`
+   - Submit a pull request :-)
 
-Coherence gives you a choice of ManagedObjectContext strategies used by a PersistentStack instance.  `ContextStrategy` classes encapsulate the layout and behavior of the ManagedObjectContexts of the CoreData stack. `Connect` currently has 4 built in strategies `Direct`, `DirectIndependent`, `IndirectNested` and `Mixed`.  If one of these strategies doesn't give you what you require for your application, you can also create your own by implementing the `ContextStrategyType` protocol.
+## Installation (Swift Package Manager)
 
-#### Context Strategy - Direct
+Coherence now supports dependency management via Swift Package Manager.  To add Coherence as a dependency to your project add the following to your `Package.swift` file in the project root.
 
-A strategy that manages the viewContext and BackgroundContext connected directly to the `NSPersistentStoreCoordinator`.
-
-Changes made to `BackgroundContext`s are propagated directly to the persistentStore allowing merge policies to be set and respected.
-
-![Context Strategy - Direct Diagram](Docs/ContextStrategy-Direct.png)
-
-- Note: The view context will be kept up to date and persisted to the store when a background context is saved.
-
-#### Context Strategy - Direct Independent
-
-A strategy that manages independent contexts (for view and background) connected directly to the `NSPersistentStoreCoordinator`.
-
-![Context Strategy - Direct Independent Diagram](Docs/ContextStrategy-DirectIndependent.png)
-
-- Note: The view context will not be kept up to date with this strategy.
-
-#### Context Strategy - Indirect Nested
-
-A strategy that manages nested (parent/child) contexts (for view and background) connected indirectly through a root context to the `NSPersistentStoreCoordinator`.
-
-Propagation of changes to the persistent store are done indirectly in the background through a root context.
-
-![Context Strategy - Indirect Nested Diagram](Docs/ContextStrategy-IndirectNested.png)
-
-- Note: The view context will be kept up to date and persisted to the store when a background context is saved.
-
-#### Context Strategy - Mixed
-
-A strategy that manages a nested (parent/child) viewContexts connected indirectly
-through a root context to the `NSPersistentStoreCoordinator` and background contexts
-that are connected directly to the `NSPersistentStoreCoordinator`.
-
-Changes made to BackgroundContexts are propagated directly to the persistentStore
-allowing merge policies to be set and respected. `viewContext` updates are done purely
-in memory and propagated to the persistentStore indirectly in a background thread
-through the rootContext.
-
-![Context Strategy - Mixed Diagram](Docs/ContextStrategy-Mixed.png)
-
-- Note: The view context will be kept up to date and persisted to the store when a background context is saved.
-
-## Usage
-
-### Start up
-
-Coherence Connect is designed to be very easy to get started.  If your only requirements are to load a data model using the default options for the store, it's as simple as the follow:
-
-```Swift
-let connect: Connect = GenericConnect<ContextStrategy.Mixed>(name: "ModelName")
-
-try connect.start()
-```
-
-This will create an instance of Connect, search for the model in the application bundle, loads the model and creates a persistent store in the default location.
-
-### 
-
-## Requirements
-
-| Xcode | Swift | iOS |
-|:-----:|:-----:|:---:|
-|  8.3  |  3.1  | 9.0 |
-
+Please see [Swift Package Manager](https://swift.org/package-manager/#conceptual-overview) for further information.
 
 ## Installation (CocoaPods)
 
@@ -117,6 +62,12 @@ pod "Coherence"
 ```
 
 See the ["Using CocoaPods"](https://guides.cocoapods.org/using/using-cocoapods.html) guide for more information.
+
+## Requirements
+
+| Xcode | Swift | iOS |
+|:-----:|:-----:|:---:|
+|  8.3  |  3.1  | 9.0 |
 
 ## Author
 
