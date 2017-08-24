@@ -278,7 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				60FF7A9C1954A5C5007DD14C /* Metadata */,
-				EA1C14231E3EF956002E63BD /* Docs */,
+				EA1C14231E3EF956002E63BD /* Documentation */,
 				EA5FD52A1C1A5918002A7B8A /* Playground */,
 				6003F593195388D20070C39A /* Coherence Example */,
 				EACBC6831E7AF628001D5431 /* Coherence Test Host */,
@@ -417,15 +417,15 @@
 			path = ContainerTests;
 			sourceTree = "<group>";
 		};
-		EA1C14231E3EF956002E63BD /* Docs */ = {
+		EA1C14231E3EF956002E63BD /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
 				EA1C14241E3EF986002E63BD /* Connect Architecture & Design.graffle */,
 				EA1C14251E3EF986002E63BD /* Connect High Level Architecture.graffle */,
 				EA1C14261E3EF986002E63BD /* Connect High Level Architecture.png */,
 			);
-			name = Docs;
-			path = ../Docs;
+			name = Documentation;
+			path = ../Documentation;
 			sourceTree = "<group>";
 		};
 		EA1C142A1E3F9F7B002E63BD /* Model */ = {
