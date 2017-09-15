@@ -40,6 +40,6 @@ Pod::Spec.new do |s|
       sp.source_files  = 'Sources/Connect/**/*'
   end
 
-  s.dependency 'TraceLog', "~> 2.0"
-  s.dependency 'TraceLog/ObjC', "~> 2.0"
+  s.dependency 'TraceLog', "~> 3.0"
+  s.dependency 'TraceLog/ObjC', "~> 3.0"
 end
