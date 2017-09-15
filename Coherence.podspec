@@ -40,6 +40,6 @@ Pod::Spec.new do |s|
       sp.source_files  = 'Sources/Connect/**/*'
   end
 
-  s.dependency 'TraceLog', :git => 'git@github.com:premisedata/tracelog.git', :branch => 'swift4.0'
-  s.dependency 'TraceLog/ObjC', :git => 'git@github.com:premisedata/tracelog.git', :branch => 'swift4.0'
+  s.dependency 'TraceLog', "~> 2.0"
+  s.dependency 'TraceLog/ObjC', "~> 2.0"
 end
