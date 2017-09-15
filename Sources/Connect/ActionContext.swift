@@ -72,7 +72,7 @@ public class ActionContext: BackgroundContext {
     ///
     /// synchronously performs the block on the context's queue with a throwing block.  May safely be called reentrantly.
     ///
-    public func performAndWait(_ block: @escaping () -> Void) {
+    override public func performAndWait(_ block: () -> Void) {
 
         super.performAndWait { () -> Void in
             var root: Bool = false
