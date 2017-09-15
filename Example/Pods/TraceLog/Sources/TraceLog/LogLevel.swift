@@ -70,7 +70,7 @@ public func ==(lhs: LogLevel, rhs: LogLevel) -> Bool {
     return lhs.rawValue == rhs.rawValue
 }
 
-internal extension LogLevel {
+public extension LogLevel {
     static var rawRange:       ClosedRange<Int> { get { return LogLevel.error.rawValue...LogLevel.trace4.rawValue } }
     static var rawTraceLevels: ClosedRange<Int> { get { return 1...4 } }
 }

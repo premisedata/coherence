@@ -25,7 +25,7 @@ extension NSManagedObjectContext {
     /// synchronously performs the block on the context's queue with a throwing block.  May safely be called reentrantly and throw Errors from this block.
     ///
     @nonobjc
-    public func performAndWait(_ block: @escaping () throws -> Void) throws {
+    public func performAndWait(_ block: () throws -> Void) throws {
         var error: Error? = nil
 
         self.performAndWait { () -> Void in

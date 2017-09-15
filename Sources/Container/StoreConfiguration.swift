@@ -85,7 +85,8 @@ public struct StoreConfiguration {
 extension StoreConfiguration: CustomStringConvertible {
 
     public var description: String {
-        var string = "<\(String(describing: type(of: self)))> ("
+
+        var string = "<\(Swift.type(of: self))> ("
 
         if let fileName = self.fileName {
             string.append("fileName: '\(fileName)', ")

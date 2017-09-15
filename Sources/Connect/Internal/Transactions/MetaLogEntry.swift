@@ -27,6 +27,7 @@ internal class MetaLogEntry: NSManagedObject {
 
     typealias ValueContainerType = [AnyHashable: Any]
 
+    @objc(Changedata)
     internal class ChangeData : NSObject, NSCoding  {
         required override init() {}
         required init?(coder aDecoder: NSCoder) {}
