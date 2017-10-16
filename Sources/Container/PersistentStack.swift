@@ -128,12 +128,12 @@ extension PersistentStack {
     }
 
     @discardableResult
-    public func attachPersistentStores(at url: URL = defaultStoreLocation(), for configurations: [StoreConfiguration] = [StoreConfiguration()]) throws -> [NSPersistentStore] {
+    public func attachPersistentStores(at url: URL = Self.defaultStoreLocation(), for configurations: [StoreConfiguration] = [StoreConfiguration()]) throws -> [NSPersistentStore] {
         return try attachPersistentStores(at: url, for: configurations)
     }
 
     @discardableResult
-    public func attachPersistentStore(at url: URL = defaultStoreLocation(), for configuration: StoreConfiguration = StoreConfiguration()) throws -> NSPersistentStore {
+    public func attachPersistentStore(at url: URL = Self.defaultStoreLocation(), for configuration: StoreConfiguration = StoreConfiguration()) throws -> NSPersistentStore {
         return try attachPersistentStore(at: url, for: configuration)
     }
 }
