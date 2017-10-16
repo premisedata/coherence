@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.author           = "Tony Stone"
   s.source           = { :git => "https://github.com/tonystone/coherence.git", :tag => s.version.to_s }
 
-  s.ios.deployment_target     = '8.1'
+  s.ios.deployment_target     = '10.0'
   s.osx.deployment_target     = '10.10'
   s.tvos.deployment_target    = '9.0'
   s.watchos.deployment_target = '2.0'
@@ -44,5 +44,5 @@ Pod::Spec.new do |s|
       sp.source_files  = 'Sources/Connect/**/*'
   end
 
-  s.dependency 'TraceLog', "~> 2.0"
+  s.dependency 'TraceLog', "~> 3.0"
 end
